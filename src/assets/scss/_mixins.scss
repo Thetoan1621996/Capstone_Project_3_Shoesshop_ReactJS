@@ -1,0 +1,48 @@
+@import './variables';
+
+
+@mixin text($fz,$fw,$c){
+    font-size: $fz;
+    font-weight: $fw;
+    color: $c;
+}
+@mixin button ($fz, $fw, $c, $bg, $pd, $bd, $br, $c-hover, $bg-hover, $bd-hover) {
+    @include text($fz, $fw , $c );
+    background-color: $bg;
+    border: $bd;
+    padding: $pd;
+    border-radius: $br;
+    cursor: pointer;
+
+    &:hover {
+        color: $c-hover;
+        border: $bd-hover;
+        background-color: $bg-hover;
+    }
+}
+
+@mixin Responsive($creen) {
+    @if $creen ==$XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    }
+
+    @else if $creen ==$SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    }
+
+    @else if $creen ==$MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    }
+
+    @else if $creen ==$XL {
+        @media only screen and (max-width: $XL) {
+            @content;
+        }
+    }
+}

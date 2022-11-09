@@ -1,0 +1,50 @@
+@import '../mixins';
+@import '../variables';
+@import '../fonts';
+
+.container{
+    .header{
+        background-color: $bg-2nd;
+        .logo{
+
+        }
+        .nav{
+            a{
+                color: $text-color-3nd;
+            }
+        }
+
+    }
+    .link{
+        display: flex;
+        margin-top: 10px;
+        a{
+            color: $text-color-primary;
+            text-decoration: none;
+            display: inline; 
+            margin-left: 20px;
+            position: relative;
+            &:hover {
+                color: #f6b653;
+                cursor: pointer;
+                transition: all 0.5s;
+                &::after{
+                    transform: scale(1,1);  
+
+                }
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                background-color: #f6b653;
+                top: 30px;
+                left: 0px;
+                transform: scale(0,0); 
+                transition: all 0.3s; 
+            }
+        }
+
+    }
+}
