@@ -1,0 +1,182 @@
+@import '../mixins';
+@import '../variables';
+@import '../fonts';
+
+.my-3 {
+    background: $bg-9th ;
+    padding: 5px 15px;
+    width: 50%;
+
+    h3 {
+        @include text($text-fz-4xl, $text-fw-regular, $text-color-3nd);
+
+
+    }
+}
+
+.container {
+
+    .row {
+        .col-3 {
+            img {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+            }
+        }
+
+        .col-9 {
+            .form-update {
+                .row {
+                    .col-6 {
+                        .form-group {
+                            p {
+                                @include text($text-fz-xl, $text-fw-semibold, $text-color-primary)
+                            }
+
+                            input {
+                                border: none;
+                                background-color: $bg-7th;
+                            }
+
+                            .radio {
+                                .me-3{
+                                    font-size: $text-fz-xl;
+                                    font-weight:$text-fw-semibold ;
+                                }
+                                .male {
+                                    display: inline-block;
+                                    position: relative;
+                                    cursor: pointer;
+                                    padding-left: 45px;
+
+                                    input {
+                                        position: absolute;
+                                        cursor: pointer;
+                                        opacity: 0;
+                                    }
+
+                                    .checkmark {
+                                        position: absolute;
+                                        top: -3px;
+                                        left: 7px;
+                                        height: 30px;
+                                        width: 31px;
+                                        
+                                        border: solid 3px $bg-11th;
+                                        border-radius: 50%;
+
+                                        &::after {
+                                            content: "";
+                                            position: absolute;
+                                            display: none;
+                                            top: 5px;
+                                            left: 5px;
+                                            width: 15px;
+                                            height: 15px;
+                                            border-radius: 50%;
+                                            background: $bg-11th;
+
+
+                                        }
+                                    }
+
+                                   
+
+                                    
+                                }
+                                .male input:checked~.checkmark::after {
+                                    display: block;
+                                }
+                                .female {
+                                    margin-left: 30px;
+                                    @extend .male
+                                }
+                            }
+
+                            .btn{
+                                @include button($text-fz-sm,$text-fw-semibold,$text-color-3nd,$bg-11th,12px 50px,2px solid,50px,#6200EE,$bg-4th,$bg-11th 2px solid)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .oder {
+        .title{
+            h4{
+                @include text($text-fz-3xl,$text-fw-regular,$text-color-primary);
+                border:  1px  solid $bg-8th;
+                border-top: 0;
+                width: 250px;
+                height: 50px;
+                
+                text-align: left;
+            }
+            .active{
+                color:$text-color-10th ;
+                text-align: center;
+            }
+        }
+         .list-oder{
+            .oder-item{
+                p{
+                    @include text($text-fz-2xl,$text-fw-regular,#7D0DB1)
+                    
+
+                }
+            }
+            .table{
+               thead{
+                    background-color: #D9D9D9;
+                    
+                    tr{
+                        td{
+                            padding: 15px 20px;
+                            border: none;
+                        }
+                    }
+               }
+               tbody{
+                tr{
+                    td{
+                        padding: 10px 20px;
+                        border: none;
+                        line-height: 30px;
+                    }
+                }
+               }
+            }
+         }   
+
+         .num{
+            .btn{
+                margin-right: 5px;
+                border: 1px solid #cccc;
+                &:hover{
+                    border: 1px solid $bg-11th ;
+                }
+            }
+         }
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}

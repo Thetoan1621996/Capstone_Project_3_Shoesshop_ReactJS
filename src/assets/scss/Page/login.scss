@@ -1,0 +1,42 @@
+@import '../mixins';
+@import '../variables';
+@import '../fonts';
+.container{
+    h3{
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 48.41px;
+    }
+    form{
+        .email{
+            p{
+                font-size: $text-fz-2xl;
+                font-weight: $text-fw-semibold;
+                line-height: 24px;
+                letter-spacing: 1px;
+            }
+            input{
+                padding: 15px 10px;
+                background-color:rgba(33, 33, 33, 0.08) ;
+                border: none;
+               
+            }
+        }
+        .password{
+            @extend .email
+        }
+        .login{
+            a{
+                @include text($text-fz-xl,500,$text-color-9th)
+            }
+            .btn{
+                @include button($text-fz-sm,$text-fw-semibold,$text-color-3nd,$bg-5th,12px 50px,1px solid,50px,#ae18e2,$bg-4th,$bg-5th 1px solid)
+            }
+        }
+        .loginfb{
+            .btn{
+                @include button($text-fz-2xl,$text-fw-regular,$text-color-3nd,#1877F2,15px 35px,1px solid,50px,$text-color-3nd,#1877F2,1px solid)
+            }
+        }
+    }
+}

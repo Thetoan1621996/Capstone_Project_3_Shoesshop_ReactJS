@@ -7,7 +7,7 @@ export default function HomeTemplate() {
   return (
     <div>
       <HeaderNavbar />
-      <div className="container">
+      <div className="container" style={{minHeight:'600px'}}>
         <Outlet />
       </div>
       <Footer />
