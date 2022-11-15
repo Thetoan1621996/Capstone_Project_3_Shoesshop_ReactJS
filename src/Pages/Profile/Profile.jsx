@@ -75,9 +75,9 @@ export default function Profile() {
                         <input
                           type="radio"
                           name="radio"
-                          defaultValue="falue"
+                          defaultValue="false"
                           className="checkGender"
-                          id="falue"
+                          id="false"
                         />
                         <span className="checkmark" />
                         Female

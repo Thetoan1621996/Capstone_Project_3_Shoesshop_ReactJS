@@ -17,6 +17,8 @@ $text-fw-bold: 700;
 
 // text-font-family
 $text-ff-roboto: 'Roboto', sans-serif;
+// box shadow
+$button-shadow:0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
 //text-color:
 $text-color-primary: #000000;
 $text-color-2nd: #cbc9c9;
@@ -46,6 +48,8 @@ $bg-11th: #6200EE;
 $bg-12th: #EB5757;
 $bg-13th: linear-gradient(180deg, #6181F3 0%, #7C97F5 99.48%);
 $bg-14th: linear-gradient(270deg, rgba(62, 32, 248, 0.9) 5.14%, #D017EE 89.71%);
+$bg-15th:#d9d9d9;
+$bg-16th:#F2994A;
 //
 $XS: 576px;
 $SM: 768px;

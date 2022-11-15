@@ -1,0 +1,91 @@
+@import "../fonts";
+@import "../mixins";
+@import "../variables";
+
+.home {
+  .banner {
+    margin-top: 50px;
+    .banner_row {
+      align-items: center;
+      .banner_left {
+        padding-left: 80px;
+      }
+      .banner_right {
+        h4 {
+          font-size: $text-fz-4xl;
+        }
+        p {
+          font-size: $text-fz-2xl;
+        }
+        .buy_now {
+          background-color: $bg-3nd;
+          border: none;
+          padding: 5px 20px;
+          color: $text-color-3nd;
+          font-size: $text-fz-2xl;
+        }
+      }
+    }
+  }
+  .product {
+    margin: 50px 0;
+    h2 {
+      background-image: $bg-9th;
+      width: 60%;
+      padding: 5px 0 5px 20px;
+      color: $text-color-3nd;
+      font-size: $text-fz-4xl;
+    }
+    .product_list {
+      .col {
+        padding: 20px;
+        .card {
+          padding: 0;
+          .image {
+            margin-bottom: 50px;
+            img {
+              width: 100%;
+
+              padding: 50px;
+            }
+          }
+
+          .card-body {
+            padding: 0 16px;
+            min-height: 110px;
+            h4 {
+              font-size: $text-fz-2xxl;
+            }
+            p {
+              font-size: $text-fz-2xl;
+              color: $text-color-2nd;
+              margin: 0;
+            }
+          }
+          .card_footer {
+            font-size: $text-fz-2xxl;
+
+            a {
+              border: none;
+              width: 50%;
+              background-color: $bg-10th;
+              padding: 10px 0;
+              text-align: center;
+              text-decoration: none;
+              color: $text-color-3nd;
+              
+            }
+            p {
+              width: 50%;
+              margin: 0;
+              text-align: center;
+              padding: 10px 0;
+              font-weight: $text-fw-semibold;
+              background-color: $bg-7th;
+            }
+          }
+        }
+      }
+    }
+  }
+}

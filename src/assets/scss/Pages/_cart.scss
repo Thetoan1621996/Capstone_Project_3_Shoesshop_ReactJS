@@ -1,0 +1,102 @@
+@import '../fonts';
+@import '../mixins';
+@import '../variables';
+
+
+.carts{
+    
+    margin: 50px 0;
+    h3{
+        font-size: $text-fz-4xl;
+    }
+    hr{
+        color: $bg-7th;
+        height: 3px
+    }
+    .table{
+        font-size: $text-fz-2xl;
+        margin-top: 50px;
+        text-align: center;
+        
+        .table_head{
+            background-color: $bg-15th;
+    
+        }
+        tbody{
+            
+            tr{
+                td{
+                    vertical-align: middle;
+                }
+              
+                .img{
+                    width:80px;
+                    
+                }
+                .addition{
+                    background-color: $bg-11th;
+                    border: none;
+                    padding: 0 15px;
+                    border-radius: 5px;
+                    box-shadow: $button-shadow;
+                    color: $text-color-3nd;
+                    
+                }
+                span{
+                    padding: 0 30px;
+                    background-color: $bg-15th;
+                    margin: 0 15px;
+                }
+                .subtraction{
+                    background-color: $bg-11th;
+                    border: none;
+                    padding: 0 18px;
+                    border-radius: 5px;
+                    box-shadow: $button-shadow;
+                    color: $text-color-3nd;
+                }
+                a{
+                    background-color: $bg-11th;
+                    color: $text-color-3nd;
+                    padding: 8px 20px;
+                    border: none;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    box-shadow: $button-shadow;
+                    font-family: $text-ff-roboto;
+                    font-size:$text-fz-md;
+                }
+                .delete{
+                    background-color: $bg-12th;
+                    color: $text-color-3nd;
+                    padding: 5px 20px;
+                    border: none;
+                    border-radius: 5px;
+                    margin-left: 20px;
+                    box-shadow: $button-shadow;
+                    font-family: $text-ff-roboto;
+                    font-size:$text-fz-md;
+                    
+                }
+            }
+         
+        }
+        
+       
+    }
+    .order{
+        margin-top: 20px;
+        position: relative;
+        left: 1080px;
+        .submit{
+            background-color: $bg-16th;
+            box-shadow: $button-shadow;
+            border: none;
+            border-radius: 5px;
+            color:$text-color-3nd;
+            padding: 10px 20px;
+            font-size:$text-fz-md;
+            font-family: $text-ff-roboto;
+        }
+     }
+}

@@ -1,0 +1,123 @@
+@import '../fonts';
+@import '../mixins';
+@import '../variables';
+
+.detail{
+  margin: 50px 0;
+    .product_detail{
+        .detail_img{
+            img{
+                width: 100%;
+                padding: 80px;
+            }
+        }
+        .detail_text{
+            padding-left: 50px;
+            h4{
+                font-size: $text-fz-3xl;
+            }
+            .des{
+                font-size: $text-fz-md;
+            }
+            h5{
+                font-size: $text-fz-2xxl;
+                color: $text-color-4th;
+            }
+            .row_size{
+                font-size: $text-fz-2xxl;
+                margin: 10px 0;
+                .size{
+                    background-color: $bg-8th;
+                    padding:5px 15px;
+                    margin-right: 20px;
+                    border: none;
+                }
+            }
+            .price{
+                font-size: $text-fz-3xl;
+                color: $text-color-5th;
+            }
+            .edit_quantity{
+                font-size: $text-fz-3xl;
+                .increase{
+                    background-image: $bg-13th;
+                    padding: 2px 15px;
+                    color: $text-color-3nd;
+                    border: none;
+                    margin-right: 10px;
+                }
+                
+                .reduce{
+                    background-image: $bg-13th;
+                    padding: 2px 18px;
+                    color: $text-color-3nd;
+                    border: none;
+                    margin-left: 10px;
+                }
+            }
+            .add{
+                font-size: $text-fz-2xxl;
+                background-image: $bg-14th;
+                color: $text-color-3nd;
+                padding: 5px 15px;
+                border: none;
+                margin-top: 10px;
+            }
+        }
+    }
+    h3{
+        text-align: center;
+        font-size: $text-fz-4xl;
+        margin:0
+    }
+    .row_related {
+        padding: 20px;
+        .card {
+          padding: 0;
+          .image {
+            margin-bottom: 50px;
+            img {
+              width: 100%;
+
+              padding: 50px;
+            }
+          }
+          .card-body {
+            padding: 0 16px;
+            min-height: 150px;
+            h4 {
+              font-size: $text-fz-2xxl;
+            }
+            p {
+              font-size: $text-fz-2xl;
+              color: $text-color-2nd;
+              margin: 0;
+            }
+          }
+          .card_footer {
+            font-size: $text-fz-2xxl;
+
+            a {
+              border: none;
+              width: 50%;
+              background-color: $bg-10th;
+              padding: 10px 0;
+              text-align: center;
+              text-decoration: none;
+              color: $text-color-3nd;
+              
+            }
+            p {
+              width: 50%;
+              margin: 0;
+              text-align: center;
+              padding: 10px 0;
+              font-weight: $text-fw-semibold;
+              background-color: $bg-7th;
+            }
+          }
+        }
+      }
+
+    
+}
