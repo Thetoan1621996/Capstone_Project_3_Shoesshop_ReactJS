@@ -1,6 +1,23 @@
 import React from "react";
 import "../../assets/scss/Page/profile.scss";
+import {useDispatch} from "react-redux"
+import { useEffect } from "react";
+import { getProfileApi } from "../../Redux/userReducer";
 export default function Profile() {
+
+
+
+
+const dispatch = useDispatch()
+useEffect(()=>{
+  const actionAsync = getProfileApi()
+    dispatch(actionAsync)
+},[])
+
+
+
+
+  
   return (
     <>
       <div className=" my-3">

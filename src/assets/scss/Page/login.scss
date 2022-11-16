@@ -21,6 +21,10 @@
                 border: none;
                
             }
+            span{
+                font-size:$text-fz-sm ;
+                
+            }
         }
         .password{
             @extend .email

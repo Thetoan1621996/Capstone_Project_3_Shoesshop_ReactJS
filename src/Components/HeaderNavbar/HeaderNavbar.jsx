@@ -4,8 +4,30 @@ import { NavLink } from "react-router-dom";
 import "../../assets/scss/Component/_headerNavbar.scss";
 
 export default function HeaderNavbar() {
+  const { cart } = useSelector((state) => state.productReducer);
 
-  const {cart} = useSelector(state=>state.productReducer)
+  const { userLogin } = useSelector((state) => state.userReducer);
+
+  const renderLogin = () => {
+    if (userLogin.email) {
+      return (
+        <div className="d-flex">
+          <NavLink to="/profile" className={"nav-link"}>
+          {" "}
+          <i class="fa fa-user mx-1"></i> 
+           {  "Profile " }
+        </NavLink>
+        
+        </div>
+      );
+    }
+    return (
+      <NavLink className="nav-link" to="/login">
+        Login
+      </NavLink>
+    );
+  };
+
   return (
     <div className="container">
       <div
@@ -26,14 +48,12 @@ export default function HeaderNavbar() {
           </div>
           <div>
             <NavLink to="/cart" className="nav-link">
-              <i className="fa fa-cart-plus"></i> 
+              <i className="fa fa-cart-plus"></i>
               <span>({cart.length})</span>
             </NavLink>
           </div>
           <div>
-            <NavLink to="/login" className="nav-link">
-              Login
-            </NavLink>
+           {renderLogin()}
           </div>
           <div>
             <NavLink to="/register" className="nav-link">
@@ -43,7 +63,7 @@ export default function HeaderNavbar() {
         </div>
       </div>
       <div className="link">
-        <NavLink to='/'>Home</NavLink>
+        <NavLink to="/">Home</NavLink>
         <NavLink>Men</NavLink>
         <NavLink>Woman</NavLink>
         <NavLink>Kid</NavLink>

@@ -98,6 +98,9 @@ http.interceptors.request.use(
 // Cấu hình cho responese: Server sẽ trả dữ liệu về cho client
 http.interceptors.response.use(
   (response) => {
+    if(response?.status === 200){
+      history.push("/profile")
+    }
     return response;
   },
   (error) => {
@@ -106,6 +109,7 @@ http.interceptors.response.use(
     if (error.response?.status === 401) {
       
       history.push("/login");
+      
     }
     if (error.response?.status === 400) {
       history.push("/home"); 
