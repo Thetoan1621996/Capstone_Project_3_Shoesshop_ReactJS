@@ -111,6 +111,9 @@ http.interceptors.response.use(
       history.push("/login");
       
     }
+    if (error.response?.status === 404) {
+      alert('Đăng nhập thất bại! Vui lòng kiểm tra lại email và password')
+    }
     if (error.response?.status === 400) {
       history.push("/home"); 
     }
