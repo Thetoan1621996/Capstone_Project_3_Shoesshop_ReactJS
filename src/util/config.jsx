@@ -98,9 +98,9 @@ http.interceptors.request.use(
 // Cấu hình cho responese: Server sẽ trả dữ liệu về cho client
 http.interceptors.response.use(
   (response) => {
-    if(response?.status === 200){
-      history.push("/profile")
-    }
+    // if(response?.status === 200){
+    //   history.push("/profile")
+    // }
     return response;
   },
   (error) => {
