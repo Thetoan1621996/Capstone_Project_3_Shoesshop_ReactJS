@@ -5,7 +5,7 @@ import { http } from "../util/config";
 const initialState = {
   arrProduct: [],
   productDetail:{},
-  cart:[]
+  cart:[],
 };
 
 const productReducer = createSlice({

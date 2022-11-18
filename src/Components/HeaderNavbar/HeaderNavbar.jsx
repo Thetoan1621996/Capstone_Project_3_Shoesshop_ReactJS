@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "../../assets/scss/Component/_headerNavbar.scss";
+import { ACCESSTOKEN, settings } from "../../util/config";
 
 export default function HeaderNavbar() {
   const { cart } = useSelector((state) => state.productReducer);
@@ -15,7 +16,7 @@ export default function HeaderNavbar() {
           <NavLink to="/profile" className={"nav-link"}>
           {" "}
           <i class="fa fa-user mx-1"></i> 
-           {  "Profile " }
+           Hi! {userLogin.email.length > 10?userLogin.email.substr(0,10)+'...':userLogin.email}
         </NavLink>
         
         </div>
@@ -27,6 +28,20 @@ export default function HeaderNavbar() {
       </NavLink>
     );
   };
+
+  const renderCart = ()=> {
+    if(settings.getStore(ACCESSTOKEN)){
+      return <NavLink to="/cart" className="nav-link">
+      <i className="fa fa-cart-plus"></i>
+      <span>({cart.length})</span>
+    </NavLink>
+    }return(
+    <NavLink to="/login" className="nav-link">
+              <i className="fa fa-cart-plus"></i>
+              <span>({cart.length})</span>
+            </NavLink>)
+
+  }
 
   return (
     <div className="container">
@@ -47,10 +62,7 @@ export default function HeaderNavbar() {
             </NavLink>
           </div>
           <div>
-            <NavLink to="/cart" className="nav-link">
-              <i className="fa fa-cart-plus"></i>
-              <span>({cart.length})</span>
-            </NavLink>
+           {renderCart()}
           </div>
           <div>
            {renderLogin()}

@@ -4,7 +4,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { loginApi } from "../../Redux/userReducer";
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
+import { history } from "../../index";
 export default function Login() {
   const dispatch = useDispatch();
 
@@ -27,7 +28,7 @@ export default function Login() {
       console.log(values);
       const action = loginApi(values);
       dispatch(action);
-      
+      history.push("/cart");
     },
   });
 

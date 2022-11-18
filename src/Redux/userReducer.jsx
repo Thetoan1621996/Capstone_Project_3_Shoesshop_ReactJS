@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ACCESSTOKEN, http, settings, USER_LOGIN } from '../util/config';
 
+
 const initialState = {
     userLogin: settings.getStorageJson(USER_LOGIN) ? settings.getStorageJson(USER_LOGIN) :{},
     userProfile:{
 
-    }
+    },
+    orderData:{}
 }
 
 const userReducer = createSlice({
@@ -18,11 +20,14 @@ const userReducer = createSlice({
 
     getProfileAction:(state,action) =>{
         state.userProfile =action.payload
-      }
+      }, 
+      orderAction:(state,action)=>{
+        state.orderData = action.payload
+       }
   }
 });
 
-export const {loginAction,getProfileAction} = userReducer.actions
+export const {loginAction,getProfileAction,orderAction} = userReducer.actions
 
 export default userReducer.reducer
 
@@ -48,5 +53,18 @@ export const getProfileApi = () =>{
         dispatch(action)
       
      
+    }
+  }
+
+  
+export const orderProductApi = (oderdata) =>{
+    return async dispatch =>{
+      try{
+        let result = await http.post('/api/users/order',oderdata);
+        alert(result.data.content)
+      }catch (err){
+        alert('Thêm mới thất bại vui lòng kiểm tra lại')
+      }
+      
     }
   }
