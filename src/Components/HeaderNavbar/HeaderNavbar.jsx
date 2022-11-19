@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "../../assets/scss/Component/_headerNavbar.scss";
-import { ACCESSTOKEN, settings } from "../../util/config";
+import { ACCESSTOKEN, settings, USER_LOGIN } from "../../util/config";
 
 export default function HeaderNavbar() {
   const { cart } = useSelector((state) => state.productReducer);
@@ -18,14 +18,27 @@ export default function HeaderNavbar() {
           <i class="fa fa-user mx-1"></i> 
            Hi! {userLogin.email.length > 10?userLogin.email.substr(0,10)+'...':userLogin.email}
         </NavLink>
-        
+        <button className="btn text-danger " onClick={()=>{
+          settings.eraseCookie(ACCESSTOKEN,0)
+          localStorage.removeItem(USER_LOGIN)
+          localStorage.removeItem(ACCESSTOKEN)
+          window.location.href='login'
+
+        }}> <i class="fa fa-sign-out-alt"></i>Logout</button>
         </div>
       );
     }
     return (
-      <NavLink className="nav-link" to="/login">
+      <div className="d-flex">
+        <NavLink className="nav-link" to="/login">
         Login
       </NavLink>
+      <NavLink to="/register" className="nav-link">
+        Register
+      </NavLink>
+    </div>
+      
+      
     );
   };
 
@@ -67,11 +80,7 @@ export default function HeaderNavbar() {
           <div>
            {renderLogin()}
           </div>
-          <div>
-            <NavLink to="/register" className="nav-link">
-              Register
-            </NavLink>
-          </div>
+         
         </div>
       </div>
       <div className="link">

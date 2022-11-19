@@ -28,7 +28,7 @@ export default function Login() {
       console.log(values);
       const action = loginApi(values);
       dispatch(action);
-      history.push("/cart");
+      history.push("/home");
     },
   });
 

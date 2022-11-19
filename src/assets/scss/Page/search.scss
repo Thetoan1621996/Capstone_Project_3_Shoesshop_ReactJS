@@ -1,0 +1,100 @@
+@import '../mixins';
+@import '../variables';
+@import '../fonts';
+
+
+.container {
+    h5{
+        @include text($text-fz-xl,500,$text-color-2nd)
+    }
+    form{
+        input{
+            border: none;
+            background-color:$bg-8th ;
+        }
+        button{
+           padding: 8px 40px;
+           border-radius: 50px;
+           background-color: $bg-11th;
+           color: $text-color-3nd;
+           border: 1px solid $bg-11th ;
+           &:hover{
+            color: #6200EE;
+            border: 1px solid #6200EE;
+            background-color: #f8f8f8;
+           }
+        }
+    }
+   .title-2{
+       
+       background:linear-gradient(180deg, #F21299 0%, #1B02B5 100%);
+    
+    h2{
+        color: #f8f8f8;
+        padding: 8px ;
+    }
+   }
+    .product{
+        p{
+            @include text($text-fz-xl,500,$text-color-2nd)  
+        }
+        form{
+            select{
+                border: none;
+            background-color:$bg-8th ;
+            }
+        }
+        .product_list {
+            .col {
+              padding: 20px;
+              .card {
+                padding: 0;
+                .image {
+                  margin-bottom: 50px;
+                  img {
+                    width: 100%;
+        
+                    padding: 50px;
+                  }
+                }
+        
+                .card-body {
+                  padding: 0 16px;
+                  min-height: 110px;
+                  h4 {
+                    font-size: $text-fz-2xxl;
+                  }
+                  p {
+                    font-size: $text-fz-2xl;
+                    color: $text-color-2nd;
+                    margin: 0;
+                  }
+                }
+                .card_footer {
+                  font-size: $text-fz-2xxl;
+        
+                  a {
+                    border: none;
+                    width: 50%;
+                    background-color: $bg-10th;
+                    padding: 10px 0;
+                    text-align: center;
+                    text-decoration: none;
+                    color: $text-color-3nd;
+                    
+                  }
+                  p {
+                    width: 50%;
+                    margin: 0;
+                    text-align: center;
+                    padding: 10px 0;
+                    font-weight: $text-fw-semibold;
+                    background-color: $bg-7th;
+                  }
+                }
+              }
+            }
+          }
+    }
+}
+

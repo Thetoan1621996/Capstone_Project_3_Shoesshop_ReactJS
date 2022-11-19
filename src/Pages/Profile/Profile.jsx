@@ -1,20 +1,37 @@
 import React from "react";
 import "../../assets/scss/Page/profile.scss";
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { useEffect } from "react";
-import { getProfileApi } from "../../Redux/userReducer";
+import { getProfileApi, updateProfileApi } from "../../Redux/userReducer";
+import { useFormik } from "formik";
+
 export default function Profile() {
 
 
-
-
+const {orderData} = useSelector(state => state.userReducer)
+const{userProfile} = useSelector(state => state.userReducer)
+console.log(userProfile)
 const dispatch = useDispatch()
 useEffect(()=>{
   const actionAsync = getProfileApi()
     dispatch(actionAsync)
 },[])
 
-
+const frm = useFormik({
+  initialValues:{
+    email:"",
+    phone:"",
+    name:"",
+    password:"",
+    gender:true
+  },
+  
+  onSubmit:(value)=>{
+    console.log(value)
+    const actionApi = updateProfileApi(value)
+    dispatch(actionApi)
+  }
+})
 
 
   
@@ -27,12 +44,12 @@ useEffect(()=>{
         <div className="row">
           <div className="col-3 text-center">
             <img
-              src="https://haycafe.vn/wp-content/uploads/2022/03/anh-chan-dung-1.jpg"
+              src={userProfile.avatar}
               alt="..."
             />
           </div>
           <div className="col-9">
-            <form className="form-update">
+            <form className="form-update" onSubmit={frm.handleSubmit}>
               <div className="row">
                 <div className="col-6">
                   <div className="form-group mb-2">
@@ -41,7 +58,9 @@ useEffect(()=>{
                       type="text"
                       className="form-control "
                       name="email"
-                      placeholder="Email"
+                      placeholder={userProfile.email}
+                      onChange={frm.handleChange}
+                      value={frm.email}
                     />
                   </div>
                   <div className="form-group">
@@ -50,7 +69,9 @@ useEffect(()=>{
                       type="text"
                       className="form-control "
                       name="name"
-                      placeholder="Name"
+                      placeholder={userProfile.name}
+                      onChange={frm.handleChange}
+                      value={frm.name}
                     />
                   </div>
                 </div>
@@ -61,7 +82,9 @@ useEffect(()=>{
                       type="text"
                       className="form-control "
                       name="phone"
-                      placeholder="Phone"
+                      placeholder={userProfile.phone}
+                      onChange={frm.handleChange}
+                      value={frm.phone}
                     />
                   </div>
                   <div className="form-group">
@@ -71,36 +94,40 @@ useEffect(()=>{
                       className="form-control "
                       name="password"
                       placeholder="Password"
+                      onChange={frm.handleChange}
+                      value={frm.password}
                     />
                   </div>
                   <div className="form-group d-flex justify-content-between mt-3 align-items-center">
                     <div className="radio">
                       <span className="me-3">Gender</span>
 
-                      <label className="male">
+                      <label className="male" onChange={frm.handleChange}>
                         <input
                           type="radio"
-                          name="radio"
-                          defaultValue="true"
+                          name="gender"
+                          value="true"
                           className="checkGender"
                           id="true"
+                          
                         />
                         <span className="checkmark" />
                         Male
                       </label>
-                      <label className="female">
+                      <label className="female" onChange={frm.handleChange}> 
                         <input
                           type="radio"
-                          name="radio"
-                          defaultValue="false"
+                          name="gender"
+                          value="false"
                           className="checkGender"
                           id="false"
+                         
                         />
                         <span className="checkmark" />
                         Female
                       </label>
                     </div>
-                    <button className="btn btn-success ">Update</button>
+                    <button className="btn btn-success " type="submit">Update</button>
                   </div>
                 </div>
               </div>

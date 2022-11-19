@@ -61,3 +61,11 @@ export const getProductDetailApi = (id) =>{
     dispatch(action)
   }
 }
+
+export const searchProductApi =(keyword) =>{
+  return async (dispatch) => {
+    const result = await http.get('/api/Product?keyword='+keyword);
+    const action = getArrProductAction(result.data.content);
+    dispatch(action);
+  };
+}

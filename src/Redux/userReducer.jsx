@@ -23,7 +23,8 @@ const userReducer = createSlice({
       }, 
       orderAction:(state,action)=>{
         state.orderData = action.payload
-       }
+       },
+   
   }
 });
 
@@ -66,5 +67,14 @@ export const orderProductApi = (oderdata) =>{
         alert('Thêm mới thất bại vui lòng kiểm tra lại')
       }
       
+    }
+  }
+
+
+  export const updateProfileApi = (profile) =>{
+    return async dispatch =>{
+      const result = await http.post('/api/Users/updateProfile',profile)
+        const action = getProfileApi(result.data.content)
+        dispatch(action)
     }
   }

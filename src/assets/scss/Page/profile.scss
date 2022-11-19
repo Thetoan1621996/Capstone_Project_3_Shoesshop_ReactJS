@@ -40,6 +40,9 @@
                             }
 
                             .radio {
+                               span{
+                                @include text ($text-fz-xl, $text-fw-semibold, $text-color-primary);
+                               }
                                 .me-3{
                                     font-size: $text-fz-xl;
                                     font-weight:$text-fw-semibold ;
@@ -48,8 +51,8 @@
                                     display: inline-block;
                                     position: relative;
                                     cursor: pointer;
-                                    padding-left: 45px;
-
+                                    padding-left: 25px;
+                                    
                                     input {
                                         position: absolute;
                                         cursor: pointer;
@@ -58,22 +61,22 @@
 
                                     .checkmark {
                                         position: absolute;
-                                        top: -3px;
+                                        top: 4px;
                                         left: 7px;
-                                        height: 30px;
-                                        width: 31px;
+                                        height: 15px;
+                                        width:15px;
                                         
-                                        border: solid 3px $bg-11th;
+                                        border: solid 2px $bg-11th;
                                         border-radius: 50%;
 
                                         &::after {
                                             content: "";
                                             position: absolute;
                                             display: none;
-                                            top: 5px;
-                                            left: 5px;
-                                            width: 15px;
-                                            height: 15px;
+                                            top: 2px;
+                                            left: 2px;
+                                            width: 7px;
+                                            height: 7px;
                                             border-radius: 50%;
                                             background: $bg-11th;
 
@@ -92,10 +95,12 @@
                                     margin-left: 30px;
                                     @extend .male
                                 }
+                                
                             }
 
                             .btn{
-                                @include button($text-fz-sm,$text-fw-semibold,$text-color-3nd,$bg-11th,12px 50px,2px solid,50px,#6200EE,$bg-4th,$bg-11th 2px solid)
+                                margin-left: 15px;
+                                @include button($text-fz-sm,$text-fw-semibold,$text-color-3nd,$bg-11th,12px 40px,2px solid,50px,#6200EE,$bg-4th,$bg-11th 2px solid)
                             }
                         }
                     }
