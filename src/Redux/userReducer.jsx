@@ -73,9 +73,14 @@ export const orderProductApi = (oderdata) =>{
 
   export const updateProfileApi = (profile) =>{
     return async dispatch =>{
-      const result = await http.post('/api/Users/updateProfile',profile)
+      try{
+        const result = await http.post('/api/Users/updateProfile',profile)
         const action = getProfileApi(result.data.content)
         dispatch(action)
+        alert(result.data.content)
+      }catch (err){
+        alert('Thất bại')
+      }
     }
   }
 

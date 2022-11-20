@@ -9,6 +9,7 @@ export default function Profile() {
   const { orderData } = useSelector((state) => state.userReducer);
   const { userProfile } = useSelector((state) => state.userReducer);
   console.log(userProfile);
+  console.log(userProfile.ordersHistory)
   const dispatch = useDispatch();
   useEffect(() => {
     const actionAsync = getProfileApi();
