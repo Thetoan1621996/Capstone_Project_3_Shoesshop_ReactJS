@@ -16,7 +16,7 @@ export default function HeaderNavbar() {
           <NavLink to="/profile" className={"nav-link"}>
           {" "}
           <i class="fa fa-user mx-1"></i> 
-           Hi! {userLogin.email.length > 10?userLogin.email.substr(0,10)+'...':userLogin.email}
+           Hi! {userLogin.email.length > 10?userLogin.email.substr(0,8)+'...':userLogin.email}
         </NavLink>
         <button className="btn text-danger " onClick={()=>{
           settings.eraseCookie(ACCESSTOKEN,0)

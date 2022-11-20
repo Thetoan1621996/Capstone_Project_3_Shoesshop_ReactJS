@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { loginApi } from "../../Redux/userReducer";
 import {NavLink} from 'react-router-dom';
 import { history } from "../../index";
+import LoginFacebook from "./LoginFacebook";
 export default function Login() {
   const dispatch = useDispatch();
 
@@ -77,9 +78,8 @@ export default function Login() {
           <button className="btn " type="submit">Login</button>
         </div>
         <div className="form-group loginfb">
-          <button className="btn w-100  mt-3">
-            <i class="fab fa-facebook-square px-1"></i> Continue with facebook
-          </button>
+          
+          <LoginFacebook/>
         </div>
       </form>
     </div>

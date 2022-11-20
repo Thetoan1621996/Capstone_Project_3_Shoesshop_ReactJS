@@ -78,3 +78,16 @@ export const orderProductApi = (oderdata) =>{
         dispatch(action)
     }
   }
+
+  export const loginFacebookApi = (tokenFacebookApp) =>{
+    return async dispatch => {
+      const result = await http.post('api/Users/facebooklogin',{facebookToken:tokenFacebookApp})
+      const action = loginAction(result.data.content)
+       dispatch(action)
+         
+  
+      settings.setStorageJson(USER_LOGIN,result.data.content)
+      settings.setStorage(ACCESSTOKEN,result.data.content.accessToken)
+      settings.setCookie(ACCESSTOKEN,result.data.content.accessToken,30)
+  }
+  }
