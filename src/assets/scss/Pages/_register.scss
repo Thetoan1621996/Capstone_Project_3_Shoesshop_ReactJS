@@ -1,0 +1,76 @@
+@import "../fonts";
+@import "../mixins";
+@import "../variables";
+
+.register {
+  padding: 0 100px;
+  margin: 50px 0;
+  form {
+    h3 {
+      font-size: $text-fz-4xl;
+    }
+    hr {
+      color: $bg-7th;
+      height: 3px;
+    }
+    .row {
+      justify-content: space-between;
+      .col-5 {
+        .form-group {
+          margin-bottom: 15px;
+          p {
+            @include text($text-fz-xl, $text-fw-regular, rgba(0, 0, 0, 0.6));
+            margin: 0;
+            font-family: $text-ff-roboto;
+          }
+          .input {
+            border: 1px solid $bg-15th;
+          }
+          input {
+            background-color: white;
+          }
+          .error{
+            font-size: $text-fz-xs;
+            color: $text-color-12th;
+            // margin-bottom: 10px
+          }
+        }
+        .gender {
+          span {
+            @include text($text-fz-xl, $text-fw-regular, rgba(0, 0, 0, 0.6));
+          }
+          position: relative;
+          top: 10px;
+          padding-top: 10px;
+          .radio {
+            position: absolute;
+            top: 5px;
+            left: 100px;
+            .col-6 {
+              input {
+                width: 20px;
+                height: 20px;
+              }
+              p {
+                color: rgba(0, 0, 0, 0.6);
+              }
+            }
+          }
+        }
+        .btn-res {
+          position: relative;
+          top: 60px;
+          color: $text-color-3nd;
+          background-color: $bg-11th;
+          border-radius: 50px;
+          box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14),
+            0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+          padding: 6px 20px;
+          border: none;
+          font-size: $text-fz-sm;
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+}

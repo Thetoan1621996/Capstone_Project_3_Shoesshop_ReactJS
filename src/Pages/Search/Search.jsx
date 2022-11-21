@@ -57,9 +57,7 @@ export default function Search() {
       <p>Price</p>
       <form action="">
         <select className='form-control w-50'>
-            <option value="decrease" onClick={()=>{
-              ascending()
-            }}>decrease</option>
+            <option value="decrease">decrease</option>
             <option value="ascending">ascending</option>
         </select>
       </form>

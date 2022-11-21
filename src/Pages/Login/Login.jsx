@@ -16,14 +16,14 @@ export default function Login() {
       password: "",
     },
     validationSchema: yup.object().shape({
-      email: yup.string().email("Email không đúng định dạng !"),
+      email: yup.string().email("Email không đúng định dạng !").required('Vui lòng nhập email của bạn'),
       password: yup
         .string()
         .required("Vui lòng nhập mật khẩu của bạn")
         .matches(
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
           "Phải chứa 8 ký tự, một chữ hoa, một chữ thường, một số và một ký tự đặc biệt"
-        ),
+        )    
     }),
     onSubmit: (values) => {
       console.log(values);

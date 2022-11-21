@@ -62,13 +62,13 @@ export default function HeaderNavbar() {
         className="row header"
         style={{ justifyContent: "space-between", alignItems: "center" }}
       >
-        <div className="logo col-8">
+        <div className="logo col-7">
           <NavLink className="nav-link" to="/">
             {" "}
             <img src="./img/logo.png" alt="logo" style={{ width: 100 }} />
           </NavLink>
         </div>
-        <div className="nav col-4">
+        <div className="nav col-5">
           <div>
             <NavLink className="nav-link" to="/search">
               <i className="fa fa-search"></i> Search

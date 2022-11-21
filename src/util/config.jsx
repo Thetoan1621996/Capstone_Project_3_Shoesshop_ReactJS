@@ -115,7 +115,7 @@ http.interceptors.response.use(
       alert('Đăng nhập thất bại! Vui lòng kiểm tra lại email và password')
     }
     if (error.response?.status === 400) {
-      history.push("/home"); 
+      // history.push("/home"); 
     }
 
     return Promise.reject(error);

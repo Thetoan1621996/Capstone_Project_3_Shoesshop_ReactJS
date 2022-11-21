@@ -85,7 +85,7 @@ export default function Home() {
                   </div>
                   <div className="card-body">
                     <h4>{prod.name}</h4>
-                    <p>{prod.shortDescription.length > 50?prod.shortDescription.substr(0,50)+'...':prod.shortDescription}</p>
+                    <p>{prod.shortDescription.length > 30?prod.shortDescription.substr(0,30)+'...':prod.shortDescription}</p>
                   </div>
                   <div className="card_footer">
                     <div className="d-flex">
