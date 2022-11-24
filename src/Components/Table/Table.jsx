@@ -53,6 +53,7 @@ const columns = [
 const ProductTable = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.productReducer);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   // cai userProfile o day goi lay du lieu o component Profile, neu k mở component đó lên api k chạy --> không có dữ liệu
   // khắc phúc ở đây ta check userProfile --> nếu có thì không sao, nếu không có gọi api để lấy email 
   const { userProfile } = useSelector((state) => state.userReducer);
@@ -118,7 +119,7 @@ const ProductTable = () => {
     </>
     };
   });
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  
 
   const onSelectChange = (newSelectedRowKeys,selectedRows) => {
    
