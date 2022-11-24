@@ -6,7 +6,7 @@ import { changeQuantity, deleteProd } from "../../Redux/productReducer";
 import { NavLink } from "react-router-dom";
 import "../../assets/scss/Component/_table.scss";
 import Cart from "../../Pages/Cart/Cart";
-import { orderAction, orderProductApi } from "../../Redux/userReducer";
+import { getProfileApi, orderAction, orderProductApi } from "../../Redux/userReducer";
 
 
 const columns = [
@@ -53,7 +53,15 @@ const columns = [
 const ProductTable = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.productReducer);
-
+  // cai userProfile o day goi lay du lieu o component Profile, neu k mở component đó lên api k chạy --> không có dữ liệu
+  // khắc phúc ở đây ta check userProfile --> nếu có thì không sao, nếu không có gọi api để lấy email 
+  const { userProfile } = useSelector((state) => state.userReducer);
+  if(userProfile === true){
+    return userProfile
+  }else{
+    const actionAsync = getProfileApi();
+    dispatch(actionAsync);
+  }
   const data = cart.map((prod,index) => {
     return {
       key:index,
@@ -114,13 +122,14 @@ const ProductTable = () => {
 
   const onSelectChange = (newSelectedRowKeys,selectedRows) => {
    
-    console.log("selectedRowKeys changed: ", newSelectedRowKeys);
+    // console.log("selectedRowKeys changed: ", newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
     // console.log ('haha',selectedRows);
     let orderDetails = selectedRows.reduce((orderArr,prod,index)=>{
       let addProd = {
         productId: prod.id,
-        quantity:prod.quantity.props.children[1].props.children
+        quantity:prod.quantity.props.children[1].props.children,
+        
       }
       orderArr.push(addProd);
       return orderArr
@@ -128,12 +137,12 @@ const ProductTable = () => {
     // console.log(orderDetails)
     let orderData = {
       orderDetail: orderDetails,
-      email:''
+      email:userProfile.email
     }
     const action = orderAction(orderData)
     dispatch(action)
-     
-  
+     console.log(orderData)
+    
    };
    
 

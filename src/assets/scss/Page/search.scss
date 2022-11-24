@@ -12,7 +12,7 @@
             border: none;
             background-color:$bg-8th ;
         }
-        button{
+        .search{
            padding: 8px 40px;
            border-radius: 50px;
            background-color: $bg-11th;
@@ -52,6 +52,16 @@
                 .image {
                   margin-bottom: 50px;
                   img {
+                    @media only screen and (max-width:1200px) {
+                      width: 250px !important;
+                      height: 260px !important;
+                      padding: 0 5px;
+                  }
+                    @media only screen and (max-width:772px) {
+                      width: 180px !important;
+                      height: 150px !important;
+                      padding: 0 5px;
+                  }
                     width: 100%;
         
                     padding: 50px;

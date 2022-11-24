@@ -7,6 +7,7 @@ import { orderProductApi } from "../../Redux/userReducer";
 
 export default function Cart() {
 const {orderData} = useSelector(state =>state.userReducer)
+// console.log(orderData)
 const dispatch = useDispatch()
 
 

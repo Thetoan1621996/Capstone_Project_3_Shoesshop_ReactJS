@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { searchProductApi } from '../../Redux/productReducer';
@@ -12,8 +12,8 @@ export default function Search() {
   const dispatch = useDispatch()
   let [searchParams, setSearchParams] = useSearchParams();
   
+ 
   
-
 
   useEffect(() => {
    
@@ -34,8 +34,9 @@ export default function Search() {
      setSearchParams({
          keyword:keywordRef.current
      })
-   };
 
+    
+   };
    
 
 
@@ -47,7 +48,7 @@ export default function Search() {
         
         <input type="text" name="search" id="keywordRef" placeholder='Product name...' className='form-control w-50 me-4' onChange={handleChange} />
        
-        <button className='btn '>search</button>
+        <button className='btn search '>search</button>
       </form>
 
       <div className="title-2">
@@ -55,17 +56,23 @@ export default function Search() {
       </div>
     <div className="product">
       <p>Price</p>
-      <form action="">
+      <form action="" className=' d-flex flex-column '>
         <select className='form-control w-50'>
-            <option value="decrease">decrease</option>
+            <option value="decrease" onChange={()=>{
+             const oder =  orderBy(arrProduct, ["price"], ['desc'])
+             console.log(oder)
+            }}>decrease</option>
             <option value="ascending">ascending</option>
         </select>
-      </form>
 
+        <button className='btn btn-light w-50 '>decrease </button>
+        <button className='btn btn-light w-50 mt-4'>ascending </button>
+      </form>
+         
       <div className="row my-5 product_list">
       {arrProduct.map((prod, index) => {
             return (
-              <div className="col-4 col" key={index}>
+              <div className="col-sm-6 col-md-6 col-lg-4   col" key={index}>
                 <div className="card">
                   <div className="image" >
                     <img src={prod.image} alt="..." style={{height:'300px' , width:'350px'}} />
