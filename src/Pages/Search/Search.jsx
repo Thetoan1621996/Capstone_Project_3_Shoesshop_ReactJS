@@ -65,8 +65,7 @@ export default function Search() {
             <option value="ascending">ascending</option>
         </select>
 
-        <button className='btn btn-light w-50 '>decrease </button>
-        <button className='btn btn-light w-50 mt-4'>ascending </button>
+        
       </form>
          
       <div className="row my-5 product_list">
