@@ -51,7 +51,7 @@ export const loginApi = (userLogin) => {
 };
 export const getProfileApi = () => {
   return async (dispatch) => {
-    const result = await http.post("/api/users/getprofile");
+    const result = await http.post("/api/users/getProfile");
     const action = getProfileAction(result.data.content);
     dispatch(action);
   };

@@ -10,6 +10,7 @@ export default function LoginFacebook() {
 
 
     const responseFacebook = async (response) => {
+      console.log('haha',response)
         const action = loginFacebookApi(response.accessToken);
         await dispatch(action);
         navigate("/profile");
