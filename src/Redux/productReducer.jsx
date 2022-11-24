@@ -37,11 +37,13 @@ const productReducer = createSlice({
     deleteProd:(state,action)=>{
       const id = action.payload
       state.cart = state.cart.filter((prod)=>prod.id !== id)
-    }
+    },
+
+   
   },
 });
 
-export const { getArrProductAction,getProductDetailActon,addToCart,changeQuantity,deleteProd } = productReducer.actions;
+export const { getArrProductAction,getProductDetailActon,addToCart,changeQuantity,deleteProd,AtoZ } = productReducer.actions;
 
 export default productReducer.reducer;
 

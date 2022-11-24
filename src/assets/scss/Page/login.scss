@@ -8,6 +8,12 @@
         line-height: 48.41px;
     }
     form{
+        @media only screen and (max-width:992px) {
+            width: 80% !important;
+        }
+        @media only screen and (max-width:772px) {
+            width: 80% !important;
+        }
         .email{
             p{
                 font-size: $text-fz-2xl;

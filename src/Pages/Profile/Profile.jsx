@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getProfileApi, updateProfileApi } from "../../Redux/userReducer";
 import { useFormik } from "formik";
+
 import * as yup from "yup";
+import TableOder from "./TableOder";
+
 export default function Profile() {
-  const { orderData } = useSelector((state) => state.userReducer);
+ 
   const { userProfile } = useSelector((state) => state.userReducer);
-  console.log(userProfile);
-  console.log(userProfile.ordersHistory)
+  console.log(userProfile )
+ 
   const dispatch = useDispatch();
-  useEffect(() => {
-    const actionAsync = getProfileApi();
-    dispatch(actionAsync);
-  }, []);
+ 
 
   const frm = useFormik({
     initialValues: {
@@ -38,6 +38,7 @@ export default function Profile() {
         .typeError("Số điện thoại không đúng định dạng")
         
         .required("Số điện thoại không được bỏ trống"),
+        name: yup.string().required('Vui lòng nhập tên của bạn').matches(/^[A-Za-z]+$/,"Tên phải là ký tự"),
     }),
     onSubmit: (value) => {
       console.log(value);
@@ -45,7 +46,42 @@ export default function Profile() {
       dispatch(actionApi);
     },
   });
+  
 
+ const renderHistoryOder = () =>{
+  
+    return <div className="list-oder mt-5">
+      {userProfile.ordersHistory?.map((item,index)=>{
+      
+      return  <div className="oder-item px-5 px-sm-0 px-md-0" key={index}>
+      <p>+ Oder have been placed on {item.date}</p>
+      <table className="table ">
+    <thead>
+      <tr>
+        <td className="py-3">Id</td>
+        <td>Img</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td>Total</td>
+      </tr>
+    </thead>
+   
+       <TableOder  orderDetail={item.orderDetail} id={item.id} 
+ />
+      
+    
+  </table>
+    </div>
+    })}
+    
+    </div>
+  }
+
+  useEffect(() => {
+    const actionAsync = getProfileApi();
+    dispatch(actionAsync);
+  }, []);
   return (
     <>
       <div className=" my-3">
@@ -53,10 +89,10 @@ export default function Profile() {
       </div>
       <div className="container my-5">
         <div className="row">
-          <div className="col-3 text-center">
+          <div className="col-3 col-sm-12  col-lg-3 text-center">
             <img src={userProfile.avatar} alt="..." />
           </div>
-          <div className="col-9">
+          <div className="col-9 col-sm-12  col-lg-9">
             <form className="form-update" onSubmit={frm.handleSubmit}>
               <div className="row">
                 <div className="col-6">
@@ -89,6 +125,14 @@ export default function Profile() {
                       onChange={frm.handleChange}
                       value={frm.name}
                     />
+                    {frm.errors.name ? (
+                      <span className="text-danger text mt-4 ms-2">
+                        {" "}
+                        {frm.errors.name}
+                      </span>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="col-6">
@@ -127,9 +171,9 @@ export default function Profile() {
             ""
           )}
                   </div>
-                  <div className="form-group d-flex justify-content-between mt-3 align-items-center">
-                    <div className="radio">
-                      <span className="me-3">Gender</span>
+                  <div className="form-group checker d-flex justify-content-between mt-3 align-items-center">
+                    <div className="radio ">
+                      <span className="me-3 ">Gender</span>
 
                       <label className="male" onChange={frm.handleChange}>
                         <input
@@ -154,7 +198,7 @@ export default function Profile() {
                         Female
                       </label>
                     </div>
-                    <button className="btn btn-success " type="submit">
+                    <button className="btn btn-success  " type="submit">
                       Update
                     </button>
                   </div>
@@ -169,39 +213,10 @@ export default function Profile() {
             <h4 className="active">Oder history</h4>
             <h4 className="px-3">Favourite</h4>
           </div>
-          <div className="list-oder mt-5">
-            <div className="oder-item px-5">
-              <p>+ Oder have been placed on 09-19-2022</p>
-              <table className="table ">
-                <thead>
-                  <tr>
-                    <td className="py-3">Id</td>
-                    <td>Img</td>
-                    <td>Name</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Total</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>
-                      <img
-                        src="https://media.travelmag.vn/files/thuannguyen/2020/04/25/cach-chup-anh-dep-tai-da-lat-1-2306.jpeg"
-                        alt="..."
-                        style={{ width: "50px" }}
-                      />
-                    </td>
-                    <td>Product 1</td>
-                    <td>1000</td>
-                    <td>1</td>
-                    <td>1000</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+         
+           {renderHistoryOder()}
+           
+          
           <div className="num text-end mt-5">
             <button className="btn btn-light ">
               {" "}

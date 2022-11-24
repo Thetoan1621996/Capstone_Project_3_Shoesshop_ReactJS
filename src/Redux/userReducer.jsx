@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ACCESSTOKEN, http, settings, USER_LOGIN } from "../util/config";
-import {history} from '../index.js'
+import { history } from "../index.js";
 const initialState = {
   userLogin: settings.getStorageJson(USER_LOGIN)
     ? settings.getStorageJson(USER_LOGIN)
     : {},
   userProfile: {},
-  orderData: {},
-  userRegister:{}
+  orderData: {
+    
+  },
+  userRegister: {},
 };
 
 const userReducer = createSlice({
@@ -24,13 +26,13 @@ const userReducer = createSlice({
     orderAction: (state, action) => {
       state.orderData = action.payload;
     },
-    signupAction:(state,action)=>{
-      state.userRegister = action.payload
-    }
+    signupAction: (state, action) => {
+      state.userRegister = action.payload;
+    },
   },
 });
 
-export const { loginAction, getProfileAction, orderAction,signupAction } =
+export const { loginAction, getProfileAction, orderAction, signupAction } =
   userReducer.actions;
 
 export default userReducer.reducer;
@@ -56,10 +58,15 @@ export const getProfileApi = () => {
 };
 
 export const orderProductApi = (oderdata) => {
+  console.log(oderdata)
   return async (dispatch) => {
     try {
+      console.log(oderdata)
       let result = await http.post("/api/users/order", oderdata);
+      const action = orderAction(oderdata);
+      dispatch(action);
       alert(result.data.content);
+      
     } catch (err) {
       alert("Thêm mới thất bại vui lòng kiểm tra lại");
     }
@@ -93,17 +100,16 @@ export const loginFacebookApi = (tokenFacebookApp) => {
   };
 };
 
-
-export const signupApi = (dataUser) =>{
-  return async (dispatch) =>{
-    try{
-      const result = await http.post('/api/users/signup',dataUser)
-      const action = signupAction(result.data.content)
-      dispatch(action)
-      history.push('/login')
-      alert(result.data.message)
-    }catch (err){
-      alert('Email này đã được sử dụng. Vui lòng sử dụng email khác!')
+export const signupApi = (dataUser) => {
+  return async (dispatch) => {
+    try {
+      const result = await http.post("/api/users/signup", dataUser);
+      const action = signupAction(result.data.content);
+      dispatch(action);
+      history.push("/login");
+      alert(result.data.message);
+    } catch (err) {
+      alert("Email này đã được sử dụng. Vui lòng sử dụng email khác!");
     }
-  }
-}
+  };
+};
