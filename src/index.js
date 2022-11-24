@@ -13,6 +13,9 @@ import Login from './Pages/Login/Login'
 import Profile from './Pages/Profile/Profile'
 import Register from './Pages/Register/Register'
 import Search from './Pages/Search/Search'
+import ResponseItem from './ResponsiveItem/ResponsiveItem';
+import Mobile_home from './Pages/Home/Mobile_home';
+import Mobile_detail from './Pages/Detail/Mobile_detail';
 
 
 export const history = createBrowserHistory()
@@ -25,10 +28,10 @@ root.render(
     <HistoryRouter history={history}>
       <Routes>
         <Route path='' element={<HomeTemplate/>}>
-          <Route index element={<Home/>}></Route>
+          <Route index element={<ResponseItem component={Home} mobileComponent={Mobile_home}/>}></Route>
           <Route path='login' element={<Login/>}></Route>
           <Route path='detail'>
-            <Route path=':id' element={<Detail/>}></Route>
+            <Route path=':id' element={<ResponseItem component={Detail} mobileComponent={Mobile_detail}/>}></Route>
           </Route>
           <Route path='register' element={<Register/>}></Route>
           <Route path='search' element={<Search/>}></Route>

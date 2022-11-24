@@ -6,16 +6,34 @@
     .row_edit{
         .left{
             padding-left: 80px;
+            @include Responsive($SM){
+                padding-left: 50px;
+            }
+            @include Responsive($XS){
+                padding-left: 20px;
+            }
             
         }
         .middle{
             padding-left: 80px;
             border-left: 3px solid $bg-7th;
             border-right: 3px solid $bg-7th;
+            @include Responsive($SM){
+                padding-left: 50px;
+            }
+            @include Responsive($XS){
+                padding-left: 20px;
+            }
            
         }
         .right{
             padding-left: 80px;
+            @include Responsive($SM){
+                padding-left: 50px;
+            }
+            @include Responsive($XS){
+                padding-left: 20px;
+            }
             
         }
 

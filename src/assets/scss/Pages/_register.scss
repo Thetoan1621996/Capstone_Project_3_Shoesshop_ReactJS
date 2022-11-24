@@ -5,6 +5,9 @@
 .register {
   padding: 0 100px;
   margin: 50px 0;
+  @include Responsive($MD){
+    padding: 0 50px;
+  }
   form {
     h3 {
       font-size: $text-fz-4xl;
@@ -13,9 +16,17 @@
       color: $bg-7th;
       height: 3px;
     }
-    .row {
+    .row_register {
+      display: flex;
       justify-content: space-between;
-      .col-5 {
+      @include Responsive($SM){
+        display: block;
+      }
+      .col_register {
+        width: 40%;
+        @include Responsive($SM){
+          width: 100%;
+        }
         .form-group {
           margin-bottom: 15px;
           p {
@@ -32,7 +43,6 @@
           .error{
             font-size: $text-fz-xs;
             color: $text-color-12th;
-            // margin-bottom: 10px
           }
         }
         .gender {
@@ -69,6 +79,7 @@
           border: none;
           font-size: $text-fz-sm;
           margin-bottom: 50px;
+        
         }
       }
     }

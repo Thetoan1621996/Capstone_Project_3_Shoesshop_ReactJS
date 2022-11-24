@@ -1,7 +1,6 @@
 import { Table } from "antd";
 import React, { useState } from "react";
 import "antd/dist/antd.css";
-
 import { useDispatch, useSelector } from "react-redux";
 import { changeQuantity, deleteProd } from "../../Redux/productReducer";
 import { NavLink } from "react-router-dom";
@@ -14,12 +13,14 @@ const columns = [
   {
     title: "ID",
     dataIndex: "id",
-    align:'center'
+    align:'center',
+    responsive: ["sm"]
   },
   {
     title: "Image",
     dataIndex: "image",
-    align:'center'
+    align:'center',
+    responsive: ["lg"]
   },
   {
     title: "Name",
@@ -34,7 +35,8 @@ const columns = [
   {
     title: "Quantity",
     dataIndex: "quantity",
-    align:'center'
+    align:'center',
+    responsive: ["lg"]
   },
   {
     title: "Total",

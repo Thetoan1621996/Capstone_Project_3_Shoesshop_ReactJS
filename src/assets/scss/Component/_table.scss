@@ -35,6 +35,12 @@
     box-shadow: $button-shadow;
     font-family: $text-ff-roboto;
     font-size:$text-fz-md;
+    @include Responsive($SM){
+      
+        font-size: $text-fz-xs;
+        padding: 5px 10px;
+    }
+    
 }
 .delete{
     background-color: $bg-12th;
@@ -46,5 +52,9 @@
     box-shadow: $button-shadow;
     font-family: $text-ff-roboto;
     font-size:$text-fz-md;
-    
+    @include Responsive($SM){
+        margin-top: 15px;
+        font-size: $text-fz-xs;
+        padding: 5px 10px;
+    }
 }

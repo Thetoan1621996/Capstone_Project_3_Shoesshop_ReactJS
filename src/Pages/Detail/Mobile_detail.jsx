@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
-import "../../assets/scss/Pages/_detail.scss";
+import "../../assets/scss/Pages/_mobile_detail.scss";
 import { addToCart, getProductDetailApi } from "../../Redux/productReducer";
 
-export default function Detail() {
+export default function Mobile_detail() {
   const { productDetail } = useSelector((state) => state.productReducer);
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export default function Detail() {
     document.querySelector("#quantity").innerHTML = quantity;
     return quantity;
   };
-  
+
   return (
     <div className="container detail">
       <div className="product_detail">
@@ -69,9 +69,9 @@ export default function Detail() {
           <button
             className="add"
             onClick={() => {
-              const newCart = {...productDetail,quantity:quantity};
-              const action = addToCart(newCart)
-              dispatch(action)
+              const newCart = { ...productDetail, quantity: quantity };
+              const action = addToCart(newCart);
+              dispatch(action);
             }}
           >
             Add to cart
@@ -79,24 +79,24 @@ export default function Detail() {
         </div>
       </div>
       <h3 className="title">-Related Product-</h3>
-      <div className="row_related row">
+      <div className="row_related">
         {productDetail.relatedProducts?.map((prod, index) => {
           return (
-            <div className="col-4 related" key={index}>
-              <div className="card related_card">
-                <div className="image_related">
-                  <img src={prod.image} alt="..." />
-                </div>
-                <div className="card-body body_related">
-                  <h4>{prod.name}</h4>
-                  <p>{prod.shortDescription.length > 30?prod.shortDescription.substr(0,30)+'...':prod.shortDescription}</p>
-                </div>
-                <div className="card_footer footer_related">
-                  <div className="d-flex">
-                    <NavLink to={`/detail/${prod.id}`}>Buy now</NavLink>
-                    <p>{prod.price}$</p>
-                  </div>
-                </div>
+            <div className="row related_mobile" key={index}>
+              <div className="imageMobile_related col-3">
+                <img className="mobile_image" src={prod.image} alt="..." />
+              </div>
+              <div className="bodyMobile_related col-5">
+                <h4>{prod.name}</h4>
+                <p>
+                  {prod.shortDescription.length > 30
+                    ? prod.shortDescription.substr(0, 30) + "..."
+                    : prod.shortDescription}
+                </p>
+              </div>
+              <div className="footerMobile_related col-4">
+                <p>{prod.price}$</p>
+                <NavLink to={`/detail/${prod.id}`}>Buy now</NavLink>
               </div>
             </div>
           );

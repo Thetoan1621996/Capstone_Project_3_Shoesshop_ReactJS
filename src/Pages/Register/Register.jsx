@@ -54,8 +54,8 @@ export default function Register() {
       <form onSubmit={frm.handleSubmit}>
       <h3>Register</h3>
       <hr />
-      <div className="row">
-        <div className="col-5">
+      <div className="row_register">
+        <div className="col_register">
           <div className="form-group">
             <p>Email</p>
             <Input type="text" id="email" name="email" placeholder="email" className="input" onChange={frm.handleChange} onBlur={frm.handleBlur}/>
@@ -80,7 +80,7 @@ export default function Register() {
             <span className="error">{frm.errors.password1}</span>
           </div>
         </div>
-        <div className="col-5">
+        <div className="col_register">
           <div className="form-group">
             <p>Name</p>
             <Input type="text" id="name" name="name" placeholder="name" className="input" onChange={frm.handleChange} onBlur={frm.handleBlur}/>

@@ -1,0 +1,42 @@
+@import '../fonts';
+@import '../mixins';
+@import '../variables';
+
+.detail{
+    .row_related{
+        .related_mobile{
+            margin: 10px 0;
+            .imageMobile_related{
+                .mobile_image{
+                    width: 100%;
+                    height: 80px;
+                }
+            }
+            .bodyMobile_related{
+                h4{
+                    font-size: $text-fz-2xl;
+                }
+                p{}
+            }
+            .footerMobile_related{
+                p{
+                    font-size: $text-fz-xl;
+                    font-weight: $text-fw-semibold;
+                }
+                a{border: none;
+                    width: 50%;
+                    background-color: $bg-10th;
+                    padding: 5px 5px;
+                    text-align: center;
+                    text-decoration: none;
+                    color: $text-color-3nd;
+                    
+                }
+            }
+        
+    }
+    }
+    
+}
+
+

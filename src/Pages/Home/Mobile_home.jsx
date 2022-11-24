@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "../../assets/scss/Pages/_home.scss";
-import { getProductApi} from "../../Redux/productReducer";
+import { getProductApi } from "../../Redux/productReducer";
+import '../../assets/scss/Pages/_mobile_home.scss'
 
-export default function Home() {
+export default function Mobile_home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,8 +15,8 @@ export default function Home() {
 
   const { arrProduct } = useSelector((state) => state.productReducer);
   return (
-    <div className="home">
-      <div className="banner">
+    <div className="home_mobile">
+      <div className="banner_mobile">
         <div
           id="carouselExampleControls"
           className="carousel slide"
@@ -23,32 +24,32 @@ export default function Home() {
         >
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <div className="row banner_row">
-                <div className="col-8 banner_left">
+              <div className="row bannerMobile_row">
+                <div className="col-6 bannerMobile_left">
                   <img src="./img/carousel.png" alt="1" />
                 </div>
-                <div className="col-4 banner_right">
-                  <h3>Adidas</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
-                    quam?
-                  </p>
-                  <button className="buy_now">Buy now</button>
-                </div>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="row banner_row">
-                <div className="col-8 banner_left">
-                  <img src="./img/carousel.png" alt="2" />
-                </div>
-                <div className="col-4 banner_right">
+                <div className="col-6 bannerMobile_right">
                   <h4>Adidas</h4>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
                     quam?
                   </p>
-                  <button className="buy_now">Buy now</button>
+                  <button className="buy_Mobile">Buy now</button>
+                </div>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <div className="row bannerMobile_row">
+                <div className="col-6 bannerMobile_left">
+                  <img src="./img/carousel.png" alt="2" />
+                </div>
+                <div className="col-6 bannerMobile_right">
+                  <h4>Adidas</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
+                    quam?
+                  </p>
+                  <button className="buy_Mobile">Buy now</button>
                 </div>
               </div>
             </div>
@@ -73,26 +74,23 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className="product">
+      <div className="product_mobile">
         <h2>Product Feature</h2>
-        <div className="product_list row">
+        <div className="list_mobile">
           {arrProduct.map((prod, index) => {
             return (
-              <div className="col-4 cols" key={index}>
-                <div className="card home_card">
-                  <div className="images" style={{ height: 300 }}>
-                    <img src={prod.image} alt="..." />
-                  </div>
-                  <div className="card-body">
-                    <h4>{prod.name}</h4>
-                    <p>{prod.shortDescription.length > 50?prod.shortDescription.substr(0,50)+'...':prod.shortDescription}</p>
-                  </div>
-                  <div className="card_footer home_footer">
-                    <div className="d-flex">
-                      <NavLink to={`/detail/${prod.id}`}>Buy now</NavLink>
-                      <p>{prod.price}$</p>
-                    </div>
-                  </div>
+              <div className="mobile_row row" key={index}>
+                <div className="col-3 col1">
+                  <img src={prod.image} alt="..." />
+                </div>
+                <div className="col-6 col2">
+                  <h4>{prod.name}</h4>
+                  <p>{prod.shortDescription.length > 30?prod.shortDescription.substr(0,30)+'...':prod.shortDescription}</p>
+                  
+                </div>
+                <div className="col-3 col3">
+                <p>{prod.price}$</p>
+                  <NavLink to={`/detail/${prod.id}`}>Buy now</NavLink>
                 </div>
               </div>
             );

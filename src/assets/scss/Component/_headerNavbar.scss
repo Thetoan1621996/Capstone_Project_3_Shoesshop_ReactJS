@@ -5,7 +5,13 @@
 .container {
   .header {
     background-color: $bg-2nd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .nav {
+      @include Responsive($SM){
+        margin-left: 50px;
+      }
       a {
         color: $text-color-3nd;
       }
